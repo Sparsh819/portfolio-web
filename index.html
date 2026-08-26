@@ -1080,8 +1080,8 @@ nav.scrolled {
   <div class="hero-content">
     <div class="hero-eyebrow">IIT Madras · CH24B100 · Chemical Engineering</div>
     <h1 class="hero-name">Sparsh<br/>Bandi<span class="accent">.</span></h1>
-    <p class="hero-tagline">
-      <span id="typed-text"></span><span class="typed-cursor"></span>
+    <p class="hero-tagline" style="opacity:0;animation:heroFadeUp 0.8s 0.8s forwards;">
+      Aerospace and Aerial Robotics Enthusiast
     </p>
     <div class="hero-stats">
       <div class="hero-stat">
@@ -1737,41 +1737,7 @@ document.querySelectorAll('.nav-links a').forEach(a => {
   a.addEventListener('click', () => nav.classList.remove('mobile-open'));
 });
 
-// ─── TYPED EFFECT ───
-(function() {
-  const phrases = [
-    "Designing flight computers for rockets headed to the stars.",
-    "Building autonomous drones that see, think & intercept.",
-    "Coding poker bots that outsmart 500+ teams.",
-    "Engineering the future — one PCB, one algorithm at a time."
-  ];
-  let phraseIdx = 0, charIdx = 0, isDeleting = false;
-  const el = document.getElementById('typed-text');
-
-  function type() {
-    const current = phrases[phraseIdx];
-    if (!isDeleting) {
-      el.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
-      if (charIdx === current.length) {
-        setTimeout(() => { isDeleting = true; type(); }, 2000);
-        return;
-      }
-      setTimeout(type, 35 + Math.random() * 25);
-    } else {
-      el.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
-      if (charIdx === 0) {
-        isDeleting = false;
-        phraseIdx = (phraseIdx + 1) % phrases.length;
-        setTimeout(type, 500);
-        return;
-      }
-      setTimeout(type, 18);
-    }
-  }
-  setTimeout(type, 1200);
-})();
+// ─── TYPED EFFECT REMOVED (static tagline) ───
 
 // ─── SCROLL REVEAL ───
 (function() {
